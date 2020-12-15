@@ -1,0 +1,92 @@
+# Post Module
+
+## Get all posts
+
+```csharp
+var client = new RestClient("https://jsonplaceholder.typicode.com/posts");
+client.Timeout = -1;
+var request = new RestRequest(Method.GET);
+request.AddHeader("Cookie", "__cfduid=da5d53354625308c86d5a1b8a358e396a1608014897");
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+```
+
+```python
+import requests
+
+url = "https://jsonplaceholder.typicode.com/posts"
+
+payload={}
+headers = {
+  'Cookie': '__cfduid=da5d53354625308c86d5a1b8a358e396a1608014897'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+```javascript
+var axios = require('axios');
+
+var config = {
+  method: 'get',
+  url: 'https://jsonplaceholder.typicode.com/posts',
+  headers: {
+    'Cookie': '__cfduid=da5d53354625308c86d5a1b8a358e396a1608014897'
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+>This must be the RestResponse
+
+```json
+[
+    {
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    },
+    {
+        "userId": 1,
+        "id": 2,
+        "title": "qui est esse",
+        "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+    }
+    ]
+```
+
+### Request Information
+|Category|Value|
+|-----------|---------|
+|Http Request |`Get`|
+|URL|https://jsonplaceholder.typicode.com/posts|
+
+
+### Headers
+No Headers Required
+
+### Input Schema for Request
+No Input Schema
+
+### Output Schema of Request
+|Field|Meaning|
+|-----------|---------|
+|userId| Id of the user|
+|id|Id of post|
+|title|Title of the post |
+|body|Body of the post |
+
+## Get a single post
+
+## Get comments of a box
+
+## Get posts of an user
